@@ -7,6 +7,7 @@ version=5
 MY_URL="https://raw.githubusercontent.com/emil237/Skin-Metrix-FHD/main"
 METRIX1="Metrix1FHD.tar.gz"
 METRIX2="Metrix2FHD.tar.gz"
+MY-TAR-PY3="MetrixFHD-py3.10.tar.gz"
 echo "******************************************************************************************************************"
 TEMPATH=/tmp
 BOXHOSTNAME=$( cat /etc/hostname)
@@ -19,19 +20,33 @@ echo ""
 cd /tmp
 set -e
 echo "===> Downloading And Installing MetrixFHD plugin Please Wait ......"
-echo
-wget "$MY_URL/$METRIX1"
+if python --version 2>&1 | grep -q '^Python 3\.'; then
+  wget "$MY_URL/$MY-TAR-PY3"
+tar -xzf MetrixFHD-py3.10.tar.gz -C /
+	else 
+echo "   Install Plugin please wait "
+   wget "$MY_URL/$METRIX1"
 wait
 tar -xzf Metrix1FHD.tar.gz -C /
-set +e
-rm -f Metrix1FHD.tar.gz
 wait
-echo "===> Downloading And Installing MetrixFHD plugin Please Wait ......"
 wget "$MY_URL/$METRIX2"
 wait
 tar -xzf Metrix2FHD.tar.gz -C /
+	fi
+echo "================================="
 set +e
-rm -f Metrix2FHD.tar.gz
+cd ..
+wait
+echo "================================="
+set +e
+cd ..
+wait
+rm -f /etc/Metrix1FHD.tar.gz
+rm -f /etc/Metrix2FHD.tar.gz
+rm -f /etc/MetrixFHD-py3.10.tar.gz
+	if [ $? -eq 0 ]; then
+echo ">>>>  SUCCESSFULLY INSTALLED <<<<"
+fi
 
 #########################
 echo "Add Setting To ${SETTINGS} ..."
@@ -79,19 +94,9 @@ echo "**************************************************************"
 echo "##############################################################"
 echo "#              your Device will RESTART Now                  #"
 echo "##############################################################"
-if [ $OSTYPE = "DreamOS" ]; then
-    sleep 2
-    systemctl restart enigma2
-else
-    killall -9 enigma2
-fi
+wait
+sleep 2
+killall -9 enigma2
 exit 0
-
-
-
-
-
-
-
 
 
