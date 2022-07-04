@@ -96,7 +96,9 @@ echo "#              your Device will RESTART Now                  #"
 echo "##############################################################"
 wait
 sleep 2
-killall -9 enigma2
+init 4
+init 3
 exit 0
+
 
 
