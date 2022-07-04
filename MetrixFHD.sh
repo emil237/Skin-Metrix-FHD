@@ -41,9 +41,9 @@ echo "================================="
 set +e
 cd ..
 wait
-rm -f /etc/Metrix1FHD.tar.gz
-rm -f /etc/Metrix2FHD.tar.gz
-rm -f /etc/MetrixFHD-py3.10.tar.gz
+rm -rf /tmp/Metrix1FHD.tar.gz
+rm -rf /tmp/Metrix2FHD.tar.gz
+rm -rf /tmp/MetrixFHD-py3.10.tar.gz
 	if [ $? -eq 0 ]; then
 echo ">>>>  SUCCESSFULLY INSTALLED <<<<"
 fi
@@ -99,6 +99,7 @@ sleep 2
 init 4
 init 3
 exit 0
+
 
 
 
