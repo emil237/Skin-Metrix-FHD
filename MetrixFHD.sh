@@ -7,7 +7,7 @@ version=5
 MY_URL="https://raw.githubusercontent.com/emil237/Skin-Metrix-FHD/main"
 METRIX1="Metrix1FHD.tar.gz"
 METRIX2="Metrix2FHD.tar.gz"
-MY-TAR-PY3="MetrixFHD-py3.10.tar.gz"
+MYTAR_PY3="MetrixFHD-py3.10.tar.gz"
 echo "******************************************************************************************************************"
 TEMPATH=/tmp
 BOXHOSTNAME=$( cat /etc/hostname)
@@ -21,7 +21,7 @@ cd /tmp
 set -e
 echo "===> Downloading And Installing MetrixFHD plugin Please Wait ......"
 if python --version 2>&1 | grep -q '^Python 3\.'; then
-  wget "$MY_URL/$MY-TAR-PY3"
+  wget "$MY_URL/$MYTAR_PY3"
 tar -xzf MetrixFHD-py3.10.tar.gz -C /
 	else 
 echo "   Install Plugin please wait "
@@ -99,6 +99,7 @@ sleep 2
 init 4
 init 3
 exit 0
+
 
 
 
