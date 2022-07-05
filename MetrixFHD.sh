@@ -7,7 +7,7 @@ version=6
 MY_URL="https://raw.githubusercontent.com/emil237/Skin-Metrix-FHD/main"
 MYTAR_PY2="MetrixFHD-py2.0.tar.gz"
 MYTAR_PY3="MetrixFHD-py3.0.tar.gz"
-MYTAR_PY3.10="MetrixFHD-py3.10.tar.gz"
+MYTAR_PY310="MetrixFHD-py310.tar.gz"
 TEMPATH=/tmp
 BOXHOSTNAME=$( cat /etc/hostname)
 SETTINGS='/etc/enigma2/settings'
@@ -36,12 +36,12 @@ elif [ "$PYTHON_VERSION" == 3.10.4 ]; then
     echo "OpenAtv PYTHON-$PYTHON_VERSION ..."
     cd /tmp
     set -e
-    echo "===> Downloading And Installing MetrixFHD python3.10 plugin Please Wait ......"
+    echo "===> Downloading And Installing MetrixFHD python3 plugin Please Wait ......"
     echo
-    wget "$MY_URL/$MYTAR_PY3.10"
-    tar -xzf MetrixFHD-py3.10.tar.gz --warning=no-timestamp -C /
+    wget "$MY_URL/$MYTAR_PY310"
+    tar -xzf MetrixFHD-py310.tar.gz --warning=no-timestamp -C /
     set +e
-    rm -f MetrixFHD-py3.10.tar.gz    
+    rm -f MetrixFHD-py310.tar.gz    
 else
     echo "OpenAtv PYTHON-$PYTHON_VERSION ..."
     cd /tmp
