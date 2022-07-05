@@ -55,7 +55,16 @@ else
 fi
 
 #########################
+echo "Add Setting To ${SETTINGS} ..."
+init 4 
+{
+    echo "config.plugins.MyMetrixLiteOther.EHDenabled=1"
+    echo "config.plugins.MyMetrixLiteOther.EHDtested="$BOXHOSTNAME"_|_01"
+    
+} >>${SETTINGS}
 
+echo ""
+sync
 echo "##############################################################"
 echo "#         MetrixFHD $version INSTALLED SUCCESSFULLY          #"
 echo "#             Uploded BY EMIL_NABIL #"
@@ -69,6 +78,6 @@ if [ $OSTYPE = "DreamOS" ]; then
     sleep 2
     systemctl restart enigma2
 else
-    reboot
+    init 3
 fi
 exit 0
