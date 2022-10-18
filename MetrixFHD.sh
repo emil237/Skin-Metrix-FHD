@@ -72,12 +72,6 @@ sleep 4;
 echo "##############################################################"
 echo "**************************************************************"
 echo "##############################################################"
-echo "#              your Device will RESTART Now                  #"
+echo "#         Please  RESTART Now  your Device                    #"
 echo "##############################################################"
-if [ $OSTYPE = "DreamOS" ]; then
-    sleep 2
-    systemctl restart enigma2
-else
-    init 3
-fi
 exit 0
